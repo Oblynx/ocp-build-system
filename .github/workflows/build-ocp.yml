@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["macos-13", "macos-14", "ubuntu-20.04", "ubuntu-24.04-arm", "windows-2019"]
+        os: ["macos-13", "macos-14", "ubuntu-20.04", "ubuntu-22.04-arm", "windows-2019"]
         python-version: ["3.10", "3.11", "3.12", "3.13"]
         use-vtk: ["vtk", "novtk"]
 
@@ -50,7 +50,7 @@ jobs:
             sed_i: "sed -i"
             env: "DUMMY=0"
             shells: "bash"
-          - os: "ubuntu-24.04-arm"
+          - os: "ubuntu-22.04-arm"
             vtk_libs: "libvtk*.so"
             vtk_suffix: "/vtk-9.3/"
             vtk_prefix: ""
@@ -149,7 +149,7 @@ jobs:
             echo "Downloading cadquery_vtk-9.3.1-cp313-cp313-linux_x86_64.whl"
             curl -L -O ${{ env.VTK313_URL }}/cadquery_vtk-9.3.1-cp313-cp313-linux_x86_64.whl
 
-          elif [[ "${{ matrix.os }}" == "ubuntu-24.04-arm" ]]; then
+          elif [[ "${{ matrix.os }}" == "ubuntu-22.04-arm" ]]; then
             echo "Downloading cadquery_vtk-9.3.1-cp313-cp313-linux_aarch64.whl"
             curl -L -O ${{ env.VTK313_URL }}/cadquery_vtk-9.3.1-cp313-cp313-linux_aarch64.whl
 
@@ -458,7 +458,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["macos-13", "macos-14", "ubuntu-20.04", "ubuntu-24.04-arm", "windows-2019"]
+        os: ["macos-13", "macos-14", "ubuntu-20.04", "ubuntu-22.04-arm", "windows-2019"]
         python-version: ["3.11"]
 
         include:
@@ -474,7 +474,7 @@ jobs:
             sed_i: "sed -i"
             env: "DUMMY=0"
             shells: "bash"
-          - os: "ubuntu-24.04-arm"
+          - os: "ubuntu-22.04-arm"
             sed_i: "sed -i"
             env: "DUMMY=0"
             shells: "bash"
@@ -655,7 +655,7 @@ jobs:
 
           if [[ ${{ matrix.os }} == "macos-13" || ${{ matrix.os }} == "macos-14" ]]; then
             curl -L -O https://github.com/CadQuery/OCP/releases/download/${{ env.OCP }}/OCP_src_stubs_macOS-latest.zip
-          elif [[ ${{ matrix.os }} == "ubuntu-24.04-arm" ]]; then
+          elif [[ ${{ matrix.os }} == "ubuntu-22.04-arm" ]]; then
             # Use ubuntu-20.04 sources for ARM build (sources are architecture-independent)
             curl -L -O https://github.com/CadQuery/OCP/releases/download/${{ env.OCP }}/OCP_src_stubs_ubuntu-20.04.zip
           else
@@ -692,7 +692,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["macos-13", "macos-14", "ubuntu-20.04", "ubuntu-24.04-arm", "windows-2019"]
+        os: ["macos-13", "macos-14", "ubuntu-20.04", "ubuntu-22.04-arm", "windows-2019"]
         python-version: ["3.10", "3.11", "3.12", "3.13"]
         use-vtk: ["vtk", "novtk"]
 
@@ -719,7 +719,7 @@ jobs:
             module: "OCP.*.so"
             env: "DUMMY=0"
             shells: "bash"
-          - os: "ubuntu-24.04-arm"
+          - os: "ubuntu-22.04-arm"
             delocate: auditwheel patchelf
             plat: manylinux_2_39_aarch64
             sed_i: "sed -i"
@@ -1213,7 +1213,7 @@ jobs:
             echo "Downloading cadquery_vtk-9.3.1-cp313-cp313-linux_x86_64.whl"
             curl -L -O ${{ env.VTK313_URL }}/cadquery_vtk-${{ env.VTK }}-cp313-cp313-linux_x86_64.whl
 
-          elif [[ "${{ matrix.os }}" == "ubuntu-24.04-arm" ]]; then
+          elif [[ "${{ matrix.os }}" == "ubuntu-22.04-arm" ]]; then
             echo "Downloading cadquery_vtk-9.3.1-cp313-cp313-linux_aarch64.whl"
             curl -L -O ${{ env.VTK313_URL }}/cadquery_vtk-${{ env.VTK }}-cp313-cp313-linux_aarch64.whl
 
