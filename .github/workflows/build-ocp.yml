@@ -9,7 +9,7 @@ env:
   VTK_MAJOR: 9.3
   OCCT: 7.8.1
   PYWRAP: false
-  VTK313_URL: https://github.com/CadQuery/ocp-build-system/releases/download/v7.8.1.0-dev
+  VTK313_URL: https://github.com/Oblynx/ocp-build-system/releases/download/v7.8.1.0-dev
 
 jobs:
   # ========================================
