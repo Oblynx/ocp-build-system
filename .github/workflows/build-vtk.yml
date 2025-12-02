@@ -15,24 +15,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu-20.04", "ubuntu-22.04-arm", "macos-13", "macos-14", "windows-2019"]
+        os: ["ubuntu-22.04-arm"]
         python-version: ["3.13"]
         include:
-          - os: "macos-13"
-            sed_i: "sed -i '.bak'"
-            shells: "bash"
-          - os: "macos-14"
-            sed_i: "sed -i '.bak'"
-            shells: "bash"
-          - os: "ubuntu-20.04"
-            sed_i: "sed -i"
-            shells: "bash"
           - os: "ubuntu-22.04-arm"
             sed_i: "sed -i"
             shells: "bash"
-          - os: "windows-2019"
-            sed_i: "sed -i"
-            shells: "bash cmd.exe"
     steps:
       - name: (All) Checkout project
         uses: actions/checkout@v4
